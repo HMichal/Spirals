@@ -6,7 +6,7 @@ float curPoint, lastPoint;
 PImage scrShot;
 
 void setup() {
-  size(1000, 800);
+  size(1280, 720);
   background(bg);
   noFill();
   colorMode(HSB, 360, 100, 100, 100);
@@ -20,7 +20,7 @@ void setup() {
 void draw() {
   pushMatrix();
   strokeWeight(random(1.8, 2.8));
-  stroke(int(frameCount/20) % 360, random(60, 100), random(60, 100), 60);
+  stroke(int(frameCount/20) % 360, random(60, 100), random(60, 100), 90);
   //noStroke();
   fill(int(frameCount/20) % 360, random(60, 100), random(60, 100), 50);
   curPoint += sqrt(2)/3;
@@ -44,7 +44,7 @@ void draw() {
 
     fill(0, 0, 0, 6);
     noStroke();
-    rect(0, 0, width, height);
+    //rect(0, 0, width, height);
   }
 }
 
@@ -56,7 +56,16 @@ void keyPressed() {
     scrShot.save(fname);
   }
    if (key == 'n' || key == 'N') {
-   background(bg);
-   redraw();
+     background(bg);
+  }
+  if (key == 'c' || key == 'C') {
+         lastPoint = 0.0;
+    curPoint = 0.0;
+    st.x = random(width);
+    st.y = random(height);
+    if (frameCount % 2 == 0)
+      teta = 0;
+    else
+      teta = PI;
   }
 }
