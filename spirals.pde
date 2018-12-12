@@ -69,3 +69,8 @@ void keyPressed() {
       teta = PI;
   }
 }
+
+void mouseDragged() {
+  st.x = mouseX;
+  st.y = mouseY;
+}
